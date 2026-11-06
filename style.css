@@ -1,0 +1,906 @@
+/* ==========================================================================
+   ARQUIVO: style.css
+   O QUE É: Arquivo que guarda todas as cores, fontes, tamanhos e efeitos visuais do site.
+   COMO FUNCIONA: É carregado pelo index.html através da tag <link> e estiliza cada
+   seção usando nomes de classes simples em português.
+   ========================================================================== */
+
+/* ==========================================================================
+   1. VARIÁVEIS DE CORES (MODO ESCURO E MODO CLARO) E CONFIGURAÇÕES GERAIS
+   O QUE É: Tabela com as cores oficiais do site e limpeza das margens do navegador.
+   COMO FUNCIONA: O :root guarda as cores padrão (Modo Escuro). Quando clicamos no
+   botão de tema, o JavaScript adiciona a classe "modo-claro" no <body>, trocando
+   automaticamente essas variáveis para tons claros.
+   ========================================================================== */
+:root {
+  --fundo-principal: #080B12;
+  --fundo-cabecalho: rgba(8, 11, 18, 0.9);
+  --fundo-secao-escura: rgba(15, 23, 42, 0.45);
+  --fundo-cartao: #101626;
+  --borda-cartao: #1E293B;
+  --cor-ciano: #06b6d4;
+  --cor-azul-claro: #38bdf8;
+  --cor-violeta: #8b5cf6;
+  --cor-erro: #f87171;
+  --cor-sucesso: #34d399;
+  --texto-branco: #FFFFFF;
+  --texto-claro: #F1F5F9;
+  --texto-medio: #CBD5E1;
+  --texto-cinza: #94A3B8;
+  --fonte-principal: 'Inter', sans-serif;
+  --fonte-codigo: 'Fira Code', monospace;
+}
+
+/* O QUE É: Cores do Modo Claro (ativadas pelo botão ☀️ Claro / 🌙 Escuro).
+   COMO FUNCIONA: Substitui os fundos escuros por branco/cinza suave e os textos
+   claros por azul-escuro para manter leitura perfeita durante o dia. */
+body.modo-claro {
+  --fundo-principal: #F8FAFC;
+  --fundo-cabecalho: rgba(248, 250, 252, 0.92);
+  --fundo-secao-escura: #EEF2F6;
+  --fundo-cartao: #FFFFFF;
+  --borda-cartao: #CBD5E1;
+  --cor-ciano: #0284c7;
+  --cor-azul-claro: #0369a1;
+  --cor-violeta: #7c3aed;
+  --texto-branco: #0F172A;
+  --texto-claro: #1E293B;
+  --texto-medio: #334155;
+  --texto-cinza: #475569;
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--fundo-principal);
+  color: var(--texto-claro);
+  font-family: var(--fonte-principal);
+  line-height: 1.6;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Classes rápidas de cor para palavras destacadas nos títulos */
+.texto-ciano {
+  color: var(--cor-ciano);
+}
+
+.texto-azul-claro {
+  color: var(--cor-azul-claro);
+}
+
+.texto-violeta {
+  color: var(--cor-violeta);
+}
+
+.texto-degrade {
+  background: linear-gradient(90deg, var(--cor-ciano), #22d3ee, var(--cor-violeta));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.escondido {
+  display: none;
+}
+
+/* ==========================================================================
+   2. CONTEINER E ESTRUTURA DAS SEÇÕES
+   O QUE É: Caixas que centralizam o conteúdo no meio da tela e dão espaço entre seções.
+   COMO FUNCIONA: O .conteiner limita a largura máxima e usa margin auto para centralizar.
+   ========================================================================== */
+.conteiner {
+  width: 92%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.conteiner-medio {
+  max-width: 1000px;
+}
+
+.secao {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+.secao-escura {
+  background-color: var(--fundo-secao-escura);
+  border-top: 1px solid var(--borda-cartao);
+  border-bottom: 1px solid var(--borda-cartao);
+}
+
+.cabecalho-secao {
+  margin-bottom: 3.5rem;
+  text-align: left;
+}
+
+.titulo-secao {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--texto-branco);
+}
+
+.subtitulo-secao {
+  color: var(--texto-cinza);
+  margin-top: 0.5rem;
+  font-size: 1rem;
+}
+
+.linha-secao {
+  width: 64px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--cor-ciano), var(--cor-violeta));
+  margin-top: 0.75rem;
+  border-radius: 50px;
+}
+
+/* ==========================================================================
+   3. CABEÇALHO, MENU E BOTÕES DE TEMA E IDIOMA
+   O QUE É: Estilo da barra superior fixa, links e botões estruturados de Tema e Idioma.
+   COMO FUNCIONA: Mantém o menu e os botões de Modo Claro/Escuro (☀️/🌙) e Idioma (🌐 PT/EN)
+   sempre visíveis e destacados no topo do site.
+   ========================================================================== */
+.cabecalho {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  background-color: var(--fundo-cabecalho);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--borda-cartao);
+  z-index: 50;
+}
+
+.cabecalho-conteudo {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  text-decoration: none;
+  padding: 0.4rem 0.85rem;
+  border-radius: 12px;
+  background-color: var(--fundo-cartao);
+  border: 1px solid var(--borda-cartao);
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.25);
+}
+
+.logo-icone {
+  font-family: var(--fonte-codigo);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--cor-ciano);
+  background-color: rgba(6, 182, 212, 0.12);
+  border: 1px solid rgba(6, 182, 212, 0.35);
+  padding: 3px 7px;
+  border-radius: 7px;
+}
+
+.logo-nome {
+  font-family: var(--fonte-codigo);
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  background: linear-gradient(90deg, var(--texto-branco), var(--cor-ciano));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.logo-detalhe {
+  font-family: var(--fonte-codigo);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: linear-gradient(90deg, rgba(6, 182, 212, 0.16), rgba(139, 92, 246, 0.16));
+  color: var(--cor-ciano);
+  border: 1px solid rgba(6, 182, 212, 0.45);
+}
+
+.menu-desktop {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+}
+
+.menu-desktop a {
+  text-decoration: none;
+  color: var(--texto-medio);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.acoes-topo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* O QUE É: Estilo estruturado e visível dos botões de Tema (☀️/🌙) e Idioma (PT/EN).
+   COMO FUNCIONA: Cria botões em formato de pílula com borda destacada em ciano,
+   fundo do cartão e fonte de código para ficarem bonitos e fáceis de clicar. */
+.botao-topo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.9rem;
+  border-radius: 10px;
+  background-color: var(--fundo-cartao);
+  border: 1px solid var(--cor-ciano);
+  color: var(--texto-branco);
+  font-family: var(--fonte-codigo);
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0px 4px 12px rgba(6, 182, 212, 0.12);
+}
+
+.redes-topo {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  margin-left: 0.25rem;
+}
+
+.redes-topo a {
+  color: var(--texto-cinza);
+  font-size: 1.125rem;
+  text-decoration: none;
+}
+
+.botao-menu-mobile {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--texto-claro);
+  font-size: 1.25rem;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.menu-mobile {
+  background-color: var(--fundo-cartao);
+  border-bottom: 1px solid var(--borda-cartao);
+  padding: 1rem 1.5rem;
+}
+
+.menu-mobile a {
+  display: block;
+  padding: 0.5rem 0px;
+  color: var(--texto-medio);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   4. SEÇÃO INÍCIO (HERO)
+   O QUE É: Estilo da primeira seção com o brilho de fundo, título grande e botões.
+   COMO FUNCIONA: Posiciona uma luz suave desfocada atrás do texto (.luz-fundo) e alinha
+   toda a apresentação do Pietro à esquerda.
+   ========================================================================== */
+.secao-inicio {
+  min-height: 88vh;
+  padding-top: 9rem;
+  padding-bottom: 4rem;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.luz-fundo {
+  position: absolute;
+  top: 20%;
+  left: 5%;
+  width: 380px;
+  height: 380px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, rgba(6, 182, 212, 0.18), rgba(139, 92, 246, 0.18));
+  filter: blur(65px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.bloco-inicio {
+  flex: 1.2;
+  max-width: 680px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.25rem;
+}
+
+.grade-inicio {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+}
+
+.caixa-imagem-inicio {
+  width: 360px;
+  height: 360px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.22) 0%, rgba(139, 92, 246, 0.18) 60%, var(--fundo-cartao) 100%);
+  border: 3px solid var(--cor-ciano);
+  box-shadow: 0px 0px 40px rgba(6, 182, 212, 0.35), 0px 0px 70px rgba(139, 92, 246, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.imagem-inicio {
+  width: 125%;
+  max-width: 450px;
+  filter: drop-shadow(0px 18px 28px rgba(0, 0, 0, 0.65));
+  transform: translateY(-6px) scale(1.05);
+}
+
+.etiqueta-ola {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.375rem 1rem;
+  border-radius: 50px;
+  border: 1px solid rgba(6, 182, 212, 0.4);
+  background-color: rgba(6, 182, 212, 0.1);
+  color: var(--cor-ciano);
+  font-family: var(--fonte-codigo);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.titulo-principal {
+  font-size: 4.25rem;
+  font-weight: 800;
+  color: var(--texto-branco);
+  line-height: 1.1;
+  letter-spacing: -1px;
+}
+
+.subtitulo-inicio {
+  font-family: var(--fonte-codigo);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--texto-claro);
+}
+
+.descricao-inicio {
+  color: var(--texto-cinza);
+  font-size: 1.125rem;
+  max-width: 640px;
+}
+
+.botoes-inicio {
+  padding-top: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.botao {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  border-radius: 12px;
+  font-family: var(--fonte-codigo);
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.botao-primario {
+  background: linear-gradient(90deg, var(--cor-ciano), var(--cor-violeta));
+  color: #000000;
+  border: none;
+  box-shadow: 0px 8px 20px rgba(6, 182, 212, 0.2);
+}
+
+.botao-secundario {
+  background-color: transparent;
+  color: var(--cor-ciano);
+  border: 1px solid rgba(6, 182, 212, 0.6);
+}
+
+.botao-largo {
+  width: 100%;
+}
+
+/* ==========================================================================
+   5. SEÇÃO SOBRE MIM (COM FOTO REDONDA NA ESQUERDA E TEXTO NA DIREITA)
+   O QUE É: Cartão Sobre Mim dividido em foto de perfil à esquerda e texto à direita.
+   COMO FUNCIONA: O .cartao-sobre-grade alinha a imagem e o texto lado a lado com Flexbox.
+   A classe .foto-perfil usa border-radius: 50% para deixar a foto perfeitamente redonda.
+   ========================================================================== */
+.cartao-sobre {
+  background-color: var(--fundo-cartao);
+  border: 1px solid var(--borda-cartao);
+  border-radius: 24px;
+  padding: 2.75rem;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.cartao-sobre-grade {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.caixa-foto-sobre {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.foto-perfil {
+  width: 210px;
+  height: 210px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--cor-ciano);
+  box-shadow: 0px 8px 24px rgba(6, 182, 212, 0.25);
+  cursor: pointer;
+}
+
+.caixa-texto-sobre p {
+  color: var(--texto-medio);
+  font-size: 1.125rem;
+  line-height: 1.8;
+}
+
+/* ==========================================================================
+   6. SEÇÃO HABILIDADES E GRADE DE 3 COLUNAS
+   O QUE É: Grade que coloca 3 cartões lado a lado em Habilidades e em Projetos.
+   ========================================================================== */
+.grade-tres-colunas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.cartao-habilidade {
+  background-color: var(--fundo-cartao);
+  border: 1px solid var(--borda-cartao);
+  border-radius: 24px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  text-align: center;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.nome-habilidade {
+  font-family: var(--fonte-codigo);
+  font-size: 1.125rem;
+  color: var(--texto-branco);
+}
+
+.detalhe-habilidade {
+  font-family: var(--fonte-codigo);
+  font-size: 0.75rem;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+/* ==========================================================================
+   7. SEÇÃO PROJETOS
+   O QUE É: Cartões dos 3 projetos em destaque com imagem de prévia no topo.
+   COMO FUNCIONA: Mostra a prévia visual (.imagem-projeto) acima do título e descrição.
+   ========================================================================== */
+.cartao-projeto {
+  background-color: var(--fundo-cartao);
+  border: 1px solid var(--borda-cartao);
+  border-radius: 24px;
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.imagem-projeto {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  background-color: #080B12;
+  border-radius: 14px;
+  border: 1px solid var(--borda-cartao);
+  margin-bottom: 1.25rem;
+  display: block;
+}
+
+.topo-projeto {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.etiqueta-ficticio {
+  font-family: var(--fonte-codigo);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 50px;
+  background-color: rgba(148, 163, 184, 0.15);
+  color: var(--texto-cinza);
+}
+
+.icone-projeto {
+  font-size: 1.25rem;
+}
+
+.titulo-projeto {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--texto-branco);
+  margin-bottom: 0.75rem;
+}
+
+.descricao-projeto {
+  color: var(--texto-cinza);
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.tecnologias-projeto {
+  padding-top: 1rem;
+  margin-bottom: 1.5rem;
+  border-top: 1px solid var(--borda-cartao);
+  font-family: var(--fonte-codigo);
+  font-size: 0.75rem;
+}
+
+.tecnologias-projeto strong {
+  color: var(--texto-claro);
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.link-projeto {
+  color: var(--cor-ciano);
+  font-family: var(--fonte-codigo);
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* ==========================================================================
+   8. SEÇÃO CONTATO (FORMULÁRIO E CANAIS DIRETOS)
+   O QUE É: Estilos dos campos do formulário, mensagens de erro e cartões de redes.
+   ========================================================================== */
+.grade-contato {
+  display: grid;
+  grid-template-columns: 7fr 5fr;
+  gap: 2rem;
+}
+
+.caixa-formulario {
+  background-color: var(--fundo-cartao);
+  border: 1px solid var(--borda-cartao);
+  border-radius: 24px;
+  padding: 2rem;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.grupo-campo {
+  margin-bottom: 1.25rem;
+}
+
+.rotulo-campo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--fonte-codigo);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--texto-medio);
+  margin-bottom: 0.5rem;
+}
+
+.campo-texto {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  background-color: var(--fundo-principal);
+  border: 1px solid var(--borda-cartao);
+  color: var(--texto-claro);
+  font-family: var(--fonte-principal);
+  font-size: 0.95rem;
+  outline: none;
+}
+
+.campo-area {
+  resize: none;
+}
+
+/* Classe aplicada pelo JavaScript quando o campo tem erro */
+.campo-erro {
+  border-color: var(--cor-erro);
+}
+
+.mensagem-erro {
+  display: none;
+  align-items: center;
+  gap: 0.375rem;
+  color: var(--cor-erro);
+  font-family: var(--fonte-codigo);
+  font-size: 0.75rem;
+  margin-top: 0.375rem;
+}
+
+.aviso-contato {
+  display: none;
+  margin-top: 1rem;
+  padding: 0.875rem;
+  border-radius: 12px;
+  font-family: var(--fonte-codigo);
+  font-size: 0.75rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  text-align: center;
+}
+
+.aviso-erro {
+  display: flex;
+  color: var(--cor-erro);
+  background-color: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.aviso-sucesso {
+  display: flex;
+  color: var(--cor-sucesso);
+  background-color: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+/* Cartões de contato direto na direita */
+.canais-diretos {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cartao-canal {
+  padding: 1.25rem;
+  border-radius: 16px;
+  background-color: var(--fundo-cartao);
+  border: 1px solid var(--borda-cartao);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+}
+
+.icone-canal {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background-color: rgba(6, 182, 212, 0.1);
+  border: 1px solid rgba(6, 182, 212, 0.3);
+  color: var(--cor-ciano);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.125rem;
+}
+
+.texto-canal {
+  display: flex;
+  flex-direction: column;
+}
+
+.rotulo-canal {
+  font-family: var(--fonte-codigo);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: var(--texto-cinza);
+}
+
+.valor-canal {
+  font-size: 0.9rem;
+  color: var(--texto-branco);
+}
+
+/* ==========================================================================
+   9. RODAPÉ
+   O QUE É: Estilo da barra final de direitos autorais.
+   ========================================================================== */
+.rodape {
+  border-top: 1px solid var(--borda-cartao);
+  padding: 2rem 0px;
+  font-family: var(--fonte-codigo);
+  font-size: 0.75rem;
+  color: var(--texto-cinza);
+}
+
+.rodape-conteudo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.link-topo {
+  color: var(--texto-cinza);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+/* ==========================================================================
+   10. RESPONSIVIDADE (CELULAR E TABLET)
+   O QUE É: Ajustes automáticos para telas menores que 768px.
+   COMO FUNCIONA: Coloca a foto acima do texto no celular e transforma as grades
+   de 3 colunas em 1 coluna só.
+   ========================================================================== */
+@media (max-width: 768px) {
+  .menu-desktop,
+  .redes-topo {
+    display: none;
+  }
+
+  .botao-menu-mobile {
+    display: block;
+  }
+
+  .titulo-principal {
+    font-size: 2.75rem;
+  }
+
+  .subtitulo-inicio {
+    font-size: 1.25rem;
+  }
+
+  .grade-inicio,
+  .cartao-sobre-grade {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .caixa-imagem-inicio {
+    width: 280px;
+    height: 280px;
+  }
+
+  .grade-tres-colunas,
+  .grade-contato {
+    grid-template-columns: 1fr;
+  }
+
+  .cartao-sobre {
+    padding: 1.75rem;
+  }
+
+  .rodape-conteudo {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+}
+
+/* ==========================================================================
+   11. BLOCO EXCLUSIVO DE TRANSIÇÕES E HOVER
+   O QUE É: Todos os efeitos de passar o mouse agrupados no final do arquivo.
+   COMO FUNCIONA: Faz a foto de perfil dar um zoom suave (scale 1.1) quando o mouse
+   passa por cima e destaca os botões e cartões.
+   ========================================================================== */
+.logo,
+.menu-desktop a,
+.redes-topo a,
+.botao,
+.botao-topo,
+.foto-perfil,
+.caixa-imagem-inicio,
+.imagem-inicio,
+.cartao-habilidade,
+.cartao-projeto,
+.cartao-canal,
+.campo-texto,
+.link-topo {
+  transition: all 0.3s ease;
+}
+
+.logo:hover {
+  border-color: var(--cor-ciano);
+  box-shadow: 0px 0px 18px rgba(6, 182, 212, 0.25);
+  transform: translateY(-2px);
+}
+
+/* Efeito de passar o mouse no círculo e na imagem do Início */
+.caixa-imagem-inicio:hover {
+  border-color: var(--cor-violeta);
+  box-shadow: 0px 0px 50px rgba(139, 92, 246, 0.5), 0px 0px 30px rgba(6, 182, 212, 0.4);
+}
+
+.caixa-imagem-inicio:hover .imagem-inicio {
+  transform: translateY(-12px) scale(1.12);
+}
+
+/* Efeito de ampliar a foto de perfil ao passar o mouse */
+.foto-perfil:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 0px 30px rgba(6, 182, 212, 0.55);
+}
+
+.botao-topo:hover {
+  background-color: var(--cor-ciano);
+  color: #000000;
+  transform: translateY(-2px);
+}
+
+.menu-desktop a:hover,
+.redes-topo a:hover,
+.link-topo:hover {
+  color: var(--cor-ciano);
+}
+
+.botao-primario:hover {
+  opacity: 0.92;
+  transform: translateY(-3px);
+}
+
+.botao-secundario:hover {
+  background-color: rgba(6, 182, 212, 0.1);
+}
+
+.cartao-habilidade:hover,
+.cartao-projeto:hover {
+  border-color: var(--cor-ciano);
+  transform: translateY(-6px);
+}
+
+.cartao-violeta:hover {
+  border-color: var(--cor-violeta);
+}
+
+.link-projeto:hover {
+  text-decoration: underline;
+}
+
+.campo-texto:focus {
+  border-color: var(--cor-ciano);
+}
+
+.cartao-canal:hover {
+  border-color: var(--cor-ciano);
+}
+
+.cartao-canal:hover .valor-canal {
+  color: var(--cor-ciano);
+}

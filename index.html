@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>pietro.dev | Desenvolvedor de Software</title>
+
+  <!-- Fontes do Google e Ícones do Font Awesome -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&family=Inter:wght@400;600;700;800&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Arquivo de estilos -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- CABEÇALHO E MENU FIXO -->
+  <header class="cabecalho">
+    <div class="conteiner cabecalho-conteudo">
+
+      <a href="#inicio" class="logo">
+        <span class="logo-icone">&lt;/&gt;</span>
+        <span class="logo-nome">pietro</span>
+        <span class="logo-detalhe">.dev</span>
+      </a>
+
+      <nav class="menu-desktop">
+        <a href="#inicio">Início</a>
+        <a href="#sobre">Sobre mim</a>
+        <a href="#habilidades">Habilidades</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#contato">Contato</a>
+      </nav>
+
+      <div class="acoes-topo">
+        <button id="botaoTema" class="botao-topo">☀️ Claro</button>
+
+        <div class="redes-topo">
+          <a href="https://github.com/" target="_blank"><i class="fa-brands fa-github"></i></a>
+          <a href="https://linkedin.com/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+          <a href="mailto:contato@pietro.dev"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+
+        <button id="botaoMenuMobile" class="botao-menu-mobile"><i class="fa-solid fa-bars"></i></button>
+      </div>
+
+    </div>
+
+    <div id="menuMobile" class="menu-mobile escondido">
+      <a href="#inicio">Início</a>
+      <a href="#sobre">Sobre mim</a>
+      <a href="#habilidades">Habilidades</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#contato">Contato</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- 1. SEÇÃO INÍCIO -->
+    <section id="inicio" class="secao-inicio">
+      <div class="luz-fundo"></div>
+
+      <div class="conteiner grade-inicio">
+        <div class="bloco-inicio">
+
+          <div class="etiqueta-ola">HELLO WORLD 👋</div>
+
+          <h1 class="titulo-principal">
+            Eu sou <span class="texto-degrade">Pietro</span>
+          </h1>
+
+          <h2 class="subtitulo-inicio">Desenvolvedor de Software e Criador de Experiências Digitais</h2>
+
+          <p class="descricao-inicio">
+            Focado em excelência técnica absoluta, interfaces fluidas e arquiteturas de código limpas, robustas e escaláveis.
+          </p>
+
+          <div class="botoes-inicio">
+            <a href="#projetos" class="botao botao-primario">
+              <i class="fa-solid fa-layer-group"></i> Ver Projetos
+            </a>
+            <a href="#contato" class="botao botao-secundario">
+              <i class="fa-solid fa-paper-plane"></i> Entrar em Contato
+            </a>
+          </div>
+
+        </div>
+
+        <div class="caixa-imagem-inicio">
+          <img src="img/banner-inicio.png" alt="Notebook com código na tela" class="imagem-inicio">
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. SEÇÃO SOBRE MIM -->
+    <section id="sobre" class="secao secao-escura">
+      <div class="conteiner conteiner-medio">
+
+        <div class="cabecalho-secao">
+          <h2 class="titulo-secao">Sobre <span class="texto-ciano">Mim</span></h2>
+          <div class="linha-secao"></div>
+        </div>
+
+        <div class="cartao-sobre cartao-sobre-grade">
+          <div class="caixa-foto-sobre">
+            <img src="img/foto-perfil.jpg" alt="Foto de perfil do Pietro" class="foto-perfil">
+          </div>
+
+          <div class="caixa-texto-sobre">
+            <p>
+              Sou o Pietro, uma referência em desenvolvimento de software e criação de experiências digitais de alta performance. Minha trajetória é pautada pela excelência técnica absoluta e pela entrega de soluções inovadoras que redefinem os padrões da indústria. Combinando uma visão estética apurada com arquiteturas de código limpas, robustas e escaláveis, domino desde a concepção visual até a implementação dos sistemas mais complexos.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 3. SEÇÃO HABILIDADES -->
+    <section id="habilidades" class="secao">
+      <div class="conteiner conteiner-medio">
+
+        <div class="cabecalho-secao">
+          <h2 class="titulo-secao">Minhas <span class="texto-ciano">Habilidades</span></h2>
+          <p class="subtitulo-secao">Tecnologias fundamentais aplicadas na criação de projetos web de alta performance.</p>
+          <div class="linha-secao"></div>
+        </div>
+
+        <div class="grade-tres-colunas">
+
+          <div class="cartao-habilidade">
+            <i class="fa-brands fa-html5 fa-3x texto-ciano"></i>
+            <strong class="nome-habilidade">HTML5</strong>
+            <ul class="detalhe-habilidade texto-ciano">
+              <li>Tags Semânticas</li>
+              <li>Acessibilidade Web</li>
+              <li>Formulários e Listas</li>
+            </ul>
+          </div>
+
+          <div class="cartao-habilidade">
+            <i class="fa-brands fa-css3-alt fa-3x texto-azul-claro"></i>
+            <strong class="nome-habilidade">CSS3</strong>
+            <ul class="detalhe-habilidade texto-azul-claro">
+              <li>Flexbox e CSS Grid</li>
+              <li>Design Responsivo</li>
+              <li>Variáveis e Temas</li>
+            </ul>
+          </div>
+
+          <div class="cartao-habilidade cartao-violeta">
+            <i class="fa-brands fa-js fa-3x texto-violeta"></i>
+            <strong class="nome-habilidade">JavaScript</strong>
+            <ul class="detalhe-habilidade texto-violeta">
+              <li>Manipulação do DOM</li>
+              <li>Arrays, Objetos e Laços</li>
+              <li>Validação de Dados</li>
+            </ul>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 4. SEÇÃO PROJETOS (preenchida dinamicamente pelo script.js) -->
+    <section id="projetos" class="secao secao-escura">
+      <div class="conteiner">
+
+        <div class="cabecalho-secao">
+          <h2 class="titulo-secao">Projetos em <span class="texto-ciano">Destaque</span></h2>
+          <p class="subtitulo-secao">Aplicações concebidas com foco em tecnologia e excelência técnica.</p>
+          <div class="linha-secao"></div>
+        </div>
+
+        <div id="listaProjetos" class="grade-tres-colunas"></div>
+
+      </div>
+    </section>
+
+    <!-- 5. SEÇÃO CONTATO -->
+    <section id="contato" class="secao">
+      <div class="conteiner conteiner-medio">
+
+        <div class="cabecalho-secao">
+          <h2 class="titulo-secao">Entrar em <span class="texto-ciano">Contato</span></h2>
+          <p class="subtitulo-secao">Disponível para novos projetos, desafios e conexões profissionais.</p>
+          <div class="linha-secao"></div>
+        </div>
+
+        <div class="grade-contato">
+
+          <div class="caixa-formulario">
+            <form id="formularioContato" novalidate>
+
+              <div class="grupo-campo">
+                <label for="campoNome" class="rotulo-campo"><i class="fa-solid fa-user texto-ciano"></i> Seu Nome</label>
+                <input type="text" id="campoNome" class="campo-texto" placeholder="Digite seu nome completo">
+                <span id="erroNome" class="mensagem-erro"></span>
+              </div>
+
+              <div class="grupo-campo">
+                <label for="campoEmail" class="rotulo-campo"><i class="fa-solid fa-envelope texto-ciano"></i> Seu E-mail</label>
+                <input type="email" id="campoEmail" class="campo-texto" placeholder="seu@email.com">
+                <span id="erroEmail" class="mensagem-erro"></span>
+              </div>
+
+              <div class="grupo-campo">
+                <label for="campoAssunto" class="rotulo-campo"><i class="fa-solid fa-tag texto-ciano"></i> Assunto</label>
+                <input type="text" id="campoAssunto" class="campo-texto" placeholder="Ex: Proposta de projeto ou dúvida">
+                <span id="erroAssunto" class="mensagem-erro"></span>
+              </div>
+
+              <div class="grupo-campo">
+                <label for="campoMensagem" class="rotulo-campo"><i class="fa-solid fa-message texto-ciano"></i> Sua Mensagem</label>
+                <textarea id="campoMensagem" class="campo-texto campo-area" rows="4" placeholder="Escreva sua mensagem aqui..."></textarea>
+                <span id="erroMensagem" class="mensagem-erro"></span>
+              </div>
+
+              <button type="submit" class="botao botao-primario botao-largo">
+                <i class="fa-solid fa-paper-plane"></i> ENVIAR MENSAGEM
+              </button>
+
+              <div id="avisoContato" class="aviso-contato"></div>
+
+            </form>
+          </div>
+
+          <div class="canais-diretos">
+
+            <a href="mailto:contato@pietro.dev" class="cartao-canal">
+              <div class="icone-canal"><i class="fa-solid fa-envelope"></i></div>
+              <div class="texto-canal">
+                <span class="rotulo-canal">E-mail direto</span>
+                <strong class="valor-canal">contato@pietro.dev</strong>
+              </div>
+            </a>
+
+            <a href="https://github.com/" target="_blank" class="cartao-canal">
+              <div class="icone-canal"><i class="fa-brands fa-github"></i></div>
+              <div class="texto-canal">
+                <span class="rotulo-canal">GitHub</span>
+                <strong class="valor-canal">Acessar perfil</strong>
+              </div>
+            </a>
+
+            <a href="https://linkedin.com/" target="_blank" class="cartao-canal">
+              <div class="icone-canal"><i class="fa-brands fa-linkedin"></i></div>
+              <div class="texto-canal">
+                <span class="rotulo-canal">LinkedIn</span>
+                <strong class="valor-canal">Conectar</strong>
+              </div>
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- RODAPÉ -->
+  <footer class="rodape">
+    <div class="conteiner rodape-conteudo">
+      <p>&copy; 2026 Pietro. Todos os direitos reservados.</p>
+      <a href="#inicio" class="link-topo"><i class="fa-solid fa-arrow-up"></i> Topo</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
